@@ -1,0 +1,473 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Choosing colors for our website
+
+Primary Color (60%) - #8ECAE6  
+
+Secondary Color (30%) - #219EBC  
+
+Call to Action Color (10%) - #023047  
+
+For example 
+
+
+.memory-game {
+  background-color: #3f51b5;  Background color for the game board 
+}
+
+.card {
+  color: #ffeb3b;  Text color for cards 
+  border-color: #ffeb3b; /* Border color for cards 
+}
+
+.button {
+  background-color: #f44336;  Background color for action buttons 
+  color: white;  Text color for action buttons 
+}
+
+*/
+
+html {
+  font-size: 62.5%;
+  /* This equals 10px */
+  font-family: "Lora", serif;
+}
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media only screen and (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #8ecae6;
+}
+
+/* Styles for desktop first */
+
+.header {
+  padding: 1rem 4rem;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1500px;
+}
+
+.header h1 {
+  color: #219ebc;
+  text-align: center;
+}
+
+.header h1 .h1-span {
+  font-weight: 600;
+  color: #023047;
+  text-transform: uppercase;
+}
+
+.game-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.countdown-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 2rem 2.4rem; */
+}
+
+.startButton,
+.restartButton {
+  background-color: #023047;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.startButton:hover,
+.restartButton:hover {
+  background-color: #001b2e; /* Darker shade of accent color on hover */
+}
+.clock {
+  color: #023047;
+  font-size: 1.8rem;
+  width: 6rem; /* Fixed width to prevent size changes */
+  text-align: center; /* Center align the text */
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.score-container {
+  padding: 2rem 2.4rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.score-container .last-score,
+.score-container .best-score {
+  width: 12rem; /* Set the same width and height */
+  height: 12rem; /* Set the same width and height */
+  border-radius: 50%; /* Make the elements circular */
+  border: 2px solid #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Primary Color (60%) */
+  color: #ffffff; /* Text color */
+}
+
+.score-container .last-score h3,
+.score-container .best-score h3 {
+  margin: 0;
+  font-size: 1.6rem; /* Adjust font size as needed */
+}
+
+.score-container .last-score .your-time,
+.score-container .best-score .best-time {
+  font-size: 2.4rem; /* Adjust font size as needed */
+}
+
+.main-content {
+  background-color: #8ecae6; /* Primary Color (60%) */
+  padding: 2rem; /* Add padding for spacing */
+}
+
+.memory-game {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem; /* Adjust the gap between cards as needed */
+}
+
+.card {
+  width: 15rem;
+  /*width: calc(16.66% - 3rem); /* Adjust the width to fit 6 cards in one row */
+  margin: 1rem; /* Adjust the margin as needed */
+  height: 14rem; /* Set a fixed height for the card */
+  position: relative; /* Enable positioning for child elements */
+  overflow: hidden; /* Hide overflowing content */
+  cursor: pointer;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      to bottom right,
+      #023047,
+      rgba(2, 48, 71, 0.8) /* Set the transparency level to 0.5 */
+    ),
+    url(images/mountain.jpeg); /* Combine linear gradient with the background image */
+  background-size: cover; /* Ensure the background image covers the entire area */
+  z-index: 1;
+  transition: opacity 0.5s ease; /* Add transition for opacity */
+}
+
+.card.clicked::before {
+  opacity: 0; /* Hide the pseudo-element */
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio while covering the container */
+  border-radius: 0.8rem; /* Add border radius for rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a box shadow */
+}
+
+/* Footer styles */
+
+footer {
+  padding: 2rem;
+  text-align: center;
+}
+
+.copyright {
+  color: #023047;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.social-icons a {
+  color: #219ebc;
+  margin: 0 1rem;
+  font-size: 2rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #023047;
+}
+
+/* Modal for Welcome Message and Rules */
+#welcomeModal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content-welcome {
+  background-color: #8ecae6;
+  color: #023047;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-content-welcome h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-content-welcome p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.modal-content-welcome .note-paragraph {
+  font-style: italic;
+  font-weight: 500;
+}
+.modal-content-welcome .note-span {
+  font-weight: 500;
+  font-weight: bold;
+}
+
+.modal-content-welcome .close {
+  color: #219ebc;
+  float: right;
+  font-size: 2.8rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-content-welcome .close:hover {
+  color: #023047;
+}
+
+/* Styles for modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: slideDown 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.modal-content {
+  background-color: #8ecae6;
+  color: #023047;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  animation: slideIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  font-size: 1.2rem;
+}
+
+.close {
+  margin-left: 1.6rem;
+  color: #219ebc;
+  float: right;
+  font-size: 2.8rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #023047;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translate(-50%, -100%);
+  }
+  to {
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Modal for Game Won */
+#gameWonModal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content-won {
+  background-color: #8ecae6;
+  color: #023047;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+}
+
+.modal-content-won .close {
+  color: #219ebc;
+  float: right;
+  font-size: 2.8rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-content-won .close:hover {
+  color: #023047;
+}
+.modal-content-won h2 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+#playAgainButton {
+  background-color: #023047;
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1, 6rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+}
+
+#playAgainButton:hover {
+  background-color: #219ebc;
+}
+
+/* Styles for mobile devices */
+@media only screen and (max-width: 768px) {
+  .header {
+    position: relative;
+  }
+
+  .header h1 {
+    position: absolute;
+    top: 1rem; /* Align to the top */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+  }
+  .header-content {
+    display: block;
+  }
+
+  .game-section {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+  .card {
+    width: 10rem;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .score-container .last-score,
+  .score-container .best-score {
+    width: 10rem; /* Set the same width and height */
+    height: 10rem; /* Set the same width and height */
+  }
+
+  .score-container .last-score h3,
+  .score-container .best-score h3 {
+    margin: 0;
+    font-size: 1.2rem; /* Adjust font size as needed */
+  }
+
+  .score-container .last-score .your-time,
+  .score-container .best-score .best-time {
+    font-size: 1.6rem; /* Adjust font size as needed */
+  }
+  .main-content {
+    padding: 1rem;
+
+    width: 100%;
+    max-width: 100%; /* Ensure content does not exceed the screen width */
+  }
+
+  .memory-game {
+    gap: 0.4rem; /* Adjust the gap between cards as needed */
+  }
+
+  .card {
+    width: 8rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .main-content {
+    margin-left: 3rem;
+  }
+}

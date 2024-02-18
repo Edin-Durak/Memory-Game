@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Game</title>
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awsome icons -->
+    <script
+      src="https://kit.fontawesome.com/e3c7cb3ed3.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Include CSS styles -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="header-left">
+          <h1>Let's play <span class="h1-span">Memory Game</span></h1>
+        </div>
+        <section class="game-section">
+          <div class="countdown-container">
+            <button id="startButton" class="startButton">Start</button>
+            <div id="clock" class="clock">00:00</div>
+            <button id="restartButton" class="restartButton">Restart</button>
+          </div>
+
+          <div class="score-container">
+            <div class="last-score">
+              <h3>Your time:</h3>
+              <span class="your-time" id="your-time">00:00</span>
+            </div>
+            <div class="best-score">
+              <h3>Your best time:</h3>
+              <span class="best-time" id="best-time">00:00</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="memory-game">
+        <div class="card">
+          <img
+            id="seagull"
+            data-id="seagull"
+            src="images/galeb.jpeg"
+            alt="Seagull"
+          />
+        </div>
+        <div class="card">
+          <img
+            id="hourse"
+            data-id="hourse"
+            src="images/konj.jpeg"
+            alt="Hourse"
+          />
+        </div>
+        <div class="card">
+          <img id="lion" data-id="lion" src="images/lav.jpeg" alt="Lion" />
+        </div>
+        <div class="card">
+          <img
+            id="leopard"
+            data-id="leopard"
+            src="images/leopard.jpeg"
+            alt="Leopard"
+          />
+        </div>
+        <div class="card">
+          <img id="cat" data-id="cat" src="images/mačka.jpeg" alt="A cat" />
+        </div>
+        <div class="card">
+          <img
+            id="sheep"
+            data-id="sheep"
+            src="images/ovca.jpeg"
+            alt="A sheep"
+          />
+        </div>
+        <div class="card">
+          <img id="panda" data-id="panda" src="images/panda.jpeg" alt="Panda" />
+        </div>
+        <div class="card">
+          <img
+            id="polar bear"
+            data-id="polar bear"
+            src="images/polarni medvjed.jpeg"
+            alt="Polar bear"
+          />
+        </div>
+        <div class="card">
+          <img id="doe" data-id="doe" src="images/srna.jpeg" alt="Doe" />
+        </div>
+        <div class="card">
+          <img
+            id="tiger"
+            data-id="tiger"
+            src="images/tigar.jpeg"
+            alt="A tiger"
+          />
+        </div>
+        <div class="card">
+          <img
+            id="squirrel"
+            data-id="squirrel"
+            src="images/vjeverica.jpeg"
+            alt="A squirrel"
+          />
+        </div>
+        <div class="card">
+          <img
+            id="seagull"
+            data-id="seagull"
+            src="images/galeb.jpeg"
+            alt="Seagull"
+          />
+        </div>
+        <div class="card">
+          <img
+            id="hourse"
+            data-id="hourse"
+            src="images/konj.jpeg"
+            alt="Hourse"
+          />
+        </div>
+        <div class="card">
+          <img id="lion" data-id="lion" src="images/lav.jpeg" alt="Lion" />
+        </div>
+        <div class="card">
+          <img
+            id="leopard"
+            data-id="leopard"
+            src="images/leopard.jpeg"
+            alt="Leopard"
+          />
+        </div>
+        <div class="card">
+          <img id="cat" data-id="cat" src="images/mačka.jpeg" alt="A cat" />
+        </div>
+        <div class="card">
+          <img
+            id="sheep"
+            data-id="sheep"
+            src="images/ovca.jpeg"
+            alt="A sheep"
+          />
+        </div>
+        <div class="card">
+          <img id="panda" data-id="panda" src="images/panda.jpeg" alt="Panda" />
+        </div>
+        <div class="card">
+          <img
+            id="polar bear"
+            data-id="polar bear"
+            src="images/polarni medvjed.jpeg"
+            alt="Polar bear"
+          />
+        </div>
+        <div class="card">
+          <img id="doe" data-id="doe" src="images/srna.jpeg" alt="Doe" />
+        </div>
+        <div class="card">
+          <img
+            id="tiger"
+            data-id="tiger"
+            src="images/tigar.jpeg"
+            alt="A tiger"
+          />
+        </div>
+        <div class="card">
+          <img
+            id="squirrel"
+            data-id="squirrel"
+            src="images/vjeverica.jpeg"
+            alt="A squirrel"
+          />
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="copyright">&copy; 2024 Edin Durak. All rights reserved.</div>
+      <div class="social-icons">
+        <a
+          href="https://github.com/Edin-Durak"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fab fa-github"></i>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/edin-durak-bb9ba41b4/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a
+          href="https://www.upwork.com/freelancers/~013a860aabfa89c4b2"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-upwork"></i>
+        </a>
+        <a
+          href="https://twitter.com/durak_edin"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fas fa-x"></i>
+        </a>
+      </div>
+    </footer>
+
+    <!-- Modal for Welcome Message and Rules -->
+    <div id="welcomeModal" class="modal">
+      <div class="modal-content-welcome">
+        <span class="close" id="closeWelcomeModal">&times;</span>
+        <h2>Welcome to the Memory Game!</h2>
+        <p>Are you ready to test your memory skills?</p>
+        <p>
+          To play the game, simply click on the cards to find matching pairs.
+          Once you've matched all the pairs, you win!
+        </p>
+        <p>Good luck and have fun!</p>
+        <p class="note-paragraph">
+          <span class="note-span">Note:</span>
+          For the best gaming experience, we recommend using a larger screen.
+        </p>
+      </div>
+    </div>
+
+    <!-- Making modals -->
+    <div id="popupModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closePopupModal">&times;</span>
+        <p>You need to start the clock before playing the game</p>
+      </div>
+    </div>
+
+    <!-- Modal for Game Won -->
+    <div id="gameWonModal" class="modal-won">
+      <div class="modal-content-won">
+        <span class="close" id="closeGameWonModal">&times;</span>
+        <h2>Congratulations!</h2>
+        <p>You won the game!</p>
+        <p>Your time: <span id="modalClockDisplay">00:00</span></p>
+        <button id="playAgainButton">Play Again</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
