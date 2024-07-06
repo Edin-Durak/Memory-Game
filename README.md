@@ -10,3 +10,4 @@ If you are interested in trying it out, visit this link: https://edin-durak.gith
 
 In the image below, you can see the desktop version.
 
+![Memory game](https://github.com/Edin-Durak/Memory-Game/assets/138677399/2ff15081-ba4b-49b4-b518-9dd4cfa1ce3a)
